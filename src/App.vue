@@ -34,7 +34,7 @@ export default {
       showSidepanel: false
     }),
 
-    computed: {v
+    computed: {
       items() {
         return [
           {
