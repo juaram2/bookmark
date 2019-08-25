@@ -40,12 +40,12 @@ export default {
           {
             icon: 'home',
             title: 'Main',
-            link: '../Main',
+            link: '/Main',
           },
           {
             icon: 'bookmark',
             title: 'Bookmark',
-            link: '../Bookmark',
+            link: '/Bookmark',
           },
         ]
       },

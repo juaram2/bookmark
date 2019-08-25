@@ -1,41 +1,31 @@
 <template>
   <div class="md-layout md-gutter">
-      <div class="md-layout-item" v-for="(item, i) in items" :key="i">
+    <div class="imgWrap" v-for="(src, i) in num" :key="i">
+      <div class="md-layout-item">
         <md-card>
           <md-card-media>
-            <img :src="selectedImage" alt="images">
+            <img :src="url + i" alt="images">
           </md-card-media>
         </md-card>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Main',
-  bookmark(){
-    return 
-  },
-  data () {
-      return {
-        images: [
-          'http://via.placeholder.com/200x140',
-          'http://via.placeholder.com/200x100'
-        ],
-        selectedImage: ''
-      }
-    },
-    created () {
-      const idx = Math.floor(Math.random() * this.images.length)
-      this.selectedImage = this.images[idx]
-    },
+  data: () => ({
+    num: 20,
+    url: 'https://placeimg.com/200/200/people/'
+  }),
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  .md-layout-item{
+  .imgWrap{
     width: 50%;
   }
   
