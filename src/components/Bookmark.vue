@@ -8,7 +8,7 @@
 
         <md-card-header>
           <div class="md-title">{{bookmark.title}}</div>
-          <div class="md-subhead">{{bookmark.url}}</div>
+          <div class="md-subhead"><a :href="bookmark.url" target="_blank">{{bookmark.url}}</a></div>
         </md-card-header>
 
         <md-button class="btn-close md-icon-button"><md-icon>close</md-icon></md-button>
