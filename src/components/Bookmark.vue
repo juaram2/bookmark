@@ -3,7 +3,7 @@
     <div v-for="bookmark of bookmarks" :key="bookmark.id">
       <md-card >
         <md-card-media>
-          <img :src="bookmarks.thumbnail" alt="People">
+          <img :src="bookmark.thumbnail" alt="People">
         </md-card-media>
 
         <md-card-header>
@@ -59,11 +59,17 @@
 
 <style scoped>
   .md-card {
-    width: 50%;
+    width: calc(50% - 8px);
     margin: 4px;
-    display: inline-block;
-    vertical-align: top;
+    display: block;
     position: relative;
+    float: left;
+  }
+  .md-card .md-subhead{
+    font-size: 12px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .btn-close{
