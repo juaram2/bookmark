@@ -78,6 +78,6 @@ export default {
   }
 
   .md-content {
-    padding: 16px;
+    /* padding: 16px; */
   }
 </style>

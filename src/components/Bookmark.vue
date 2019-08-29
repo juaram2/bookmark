@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="card-expansion" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="limit">
-      <div v-for="bookmark of bookmarks" :key="bookmark.id" data-aos="slide-up" data-aos-offset="100" data-aos-easing="ease-out-back">
+    <div class="card-expansion">
+      <div v-for="bookmark of bookmarks" :key="bookmark.id">
         <md-card >
           <md-card-media>
             <img :src="bookmark.thumbnail" alt="People">
@@ -44,6 +44,7 @@
     <md-button class="md-fab md-primary" @click="showDialog = true">
       <md-icon>add</md-icon>
     </md-button>
+    <!-- dialog -->
   </div>
 </template>
 
@@ -60,7 +61,8 @@
         url: '',
         thumbnail: '',
         bookmarks: [],
-        showDialog: false
+        showDialog: false,
+        nextItem: 1
       };
     },
 
@@ -84,16 +86,54 @@
         axios.delete(baseURL + bookmark.id)
         .then(response => {
           this.bookmarks.splice(id, 1)
-          // location.reload();
+          location.reload();
         });
       },
 
+      // 스크롤시 로드
+      // loadMore () {
+      //   this.loading = true;
+      //   setTimeout(e => {
+      //     for (var i = 0; i < 6; bookmarks.length / 6) {
+      //       this.bookmarks.push('Item ' + this.nextItem++);
+      //     }
+      //     this.loading = false;
+      //   }, 200);
+      // }
+    },
+
+    mounted() {
+      // 스크롤 다하면 실행
+      // const bookmarkWrap = document.querySelector('.card-expansion');
+      // bookmarkWrap.addEventListener('scroll', e => {
+      //   if(bookmarkWrap.scrollTop + bookmarkWrap.clientHeight >= bookmarkWrap.scrollHeight) {
+      //     this.loadMore();
+      //   }
+      // });
+
+      // this.loadMore();
+    },
+
+    // 다이얼로그 오픈시 스크롤 금지
+    watch: {
+      showDialog: function() {
+        if(this.showDialog == true){
+          document.documentElement.style.overflow = 'hidden'
+          return
+        }
+        document.documentElement.style.overflow = 'auto'
+      }
     },
   }
 </script>
 
 <style scoped>
-  .card-expansion {overflow: hidden;}
+  .card-expansion {
+    overflow-y: auto; 
+    width: 100%;
+    height: calc(100vh - 50px);
+    padding: 16px
+  }
   .md-card {
     width: calc(50% - 8px);
     height: 255.5px;
