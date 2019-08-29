@@ -15,6 +15,34 @@
 
       </md-card>
     </div>
+
+
+<!-- dialog -->
+    <md-dialog :md-active.sync="showDialog">
+      <md-dialog-title>New Bookmark</md-dialog-title>
+      
+      <md-field>
+        <label>Title</label>
+        <md-input v-model="initial" placeholder="New Title"></md-input>
+      </md-field>
+      <md-field>
+        <label>URL</label>
+        <md-input v-model="initial" placeholder="http://url"></md-input>
+      </md-field>
+      <md-field>
+        <label>Thumbnail</label>
+        <md-input v-model="initial" placeholder="http://url/image"></md-input>
+      </md-field>
+
+      <md-dialog-actions>
+        <md-button class="md-primary" @click="showDialog = false">Close</md-button>
+        <md-button class="md-primary" @click="showDialog = false">Save</md-button>
+      </md-dialog-actions>
+    </md-dialog>
+
+    <md-button class="md-fab md-primary" @click="showDialog = true">
+      <md-icon>add</md-icon>
+    </md-button>
   </div>
 </template>
 
@@ -29,6 +57,7 @@
         url: '',
         thumbnail: '',
         bookmarks: [],
+        showDialog: false
       };
     },
 
@@ -76,5 +105,18 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+  .md-fab {
+    position: fixed;
+    bottom:20px; right:20px
+  }
+
+  .md-dialog {
+    max-width: 300px;
+    height: 370px;
+    padding: 0 30px
+  }
+  .md-dialog-title{
+    padding-left: 0;
   }
 </style>

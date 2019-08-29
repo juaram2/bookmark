@@ -55,17 +55,26 @@ export default {
 
 <style scoped>
   @import url('//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons');
-
+  .page-container > .md-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
   .page-container {
     min-height: 100vh;
     overflow: hidden;
     position: relative;
+    padding-top: 50px;
     border: 1px solid rgba(#000, .12);
   }
 
   .md-drawer {
     width: 230px;
     max-width: calc(100vw - 125px);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
   .md-content {
