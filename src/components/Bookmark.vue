@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card-expansion">
-      <div v-for="bookmark of bookmarks" :key="bookmark.id">
+      <div v-for="(bookmark, index) of bookmarks" :key="bookmark.id">
         <md-card >
           <md-card-media>
             <img :src="bookmark.thumbnail" alt="People">
@@ -12,7 +12,7 @@
             <div class="md-subhead"><a :href="bookmark.url" target="_blank">{{bookmark.url}}</a></div>
           </md-card-header>
 
-          <md-button class="btn-close md-icon-button" v-on:submit.prevent="delBookmark(index)" @click="delBookmark(bookmark, index) in bookmarks"><md-icon>close</md-icon></md-button>
+          <md-button class="btn-close md-icon-button" @click="delBookmark(bookmark, index)"><md-icon>close</md-icon></md-button>
 
         </md-card>
       </div>
@@ -82,11 +82,10 @@
         this.bookmarks = [...this.bookmarks, res.data]
       },
       // 북마크 삭제
-      delBookmark(bookmark, id) {
+      delBookmark(bookmark, index) {
         axios.delete(baseURL + bookmark.id)
         .then(response => {
-          this.bookmarks.splice(id, 1)
-          location.reload();
+          this.bookmarks.splice(index, 1)
         });
       },
 
