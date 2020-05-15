@@ -90,28 +90,6 @@
         });
       },
 
-      // 스크롤시 로드
-      // loadMore () {
-      //   this.loading = true;
-      //   setTimeout(e => {
-      //     for (var i = 0; i < 6; bookmarks.length / 6) {
-      //       this.bookmarks.push('Item ' + this.nextItem++);
-      //     }
-      //     this.loading = false;
-      //   }, 200);
-      // }
-    },
-
-    mounted() {
-      // 스크롤 다하면 실행
-      // const bookmarkWrap = document.querySelector('.card-expansion');
-      // bookmarkWrap.addEventListener('scroll', e => {
-      //   if(bookmarkWrap.scrollTop + bookmarkWrap.clientHeight >= bookmarkWrap.scrollHeight) {
-      //     this.loadMore();
-      //   }
-      // });
-
-      // this.loadMore();
     },
 
     // 다이얼로그 오픈시 스크롤 금지
@@ -179,5 +157,8 @@
   }
   .md-dialog-title{
     padding-left: 0;
+  }
+  .md-dialog-container {
+    transform: translate(0,0)
   }
 </style>

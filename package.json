@@ -1,6 +1,6 @@
 {
   "name": "bookmark",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Vue.js project",
   "author": "aramju",
   "private": true,
@@ -60,5 +60,19 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juaram2/bookmark.git"
+  },
+  "keywords": [
+    "bookmark",
+    "vue"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juaram2/bookmark/issues"
+  },
+  "homepage": "https://github.com/juaram2/bookmark#readme"
 }
